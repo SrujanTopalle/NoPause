@@ -48,7 +48,7 @@ def cut_video(input_video_path, silence_intervals, output_video_path):
         non_silence_intervals.append((previous_end, video.duration))
     clips = [video.subclip(start, end) for start, end in non_silence_intervals]
     final_clip = concatenate_videoclips(clips)
-    final_clip.write_videofile(output_video_path, codec="h264_nvenc", audio_codec="aac")
+    final_clip.write_videofile(output_video_path, codec="h264_nvenc", audio_codec="aac") #Replace with codec="libx264" if you only want to run it on CPU
     video.close()
     final_clip.close()
 
